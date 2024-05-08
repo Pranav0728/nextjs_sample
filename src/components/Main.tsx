@@ -1,5 +1,7 @@
 "use client"
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import bin from "../../public/images/bin.png"
 
 export default function Main() {
     const [items, setItems] = useState([]);
@@ -79,12 +81,12 @@ export default function Main() {
                 </button>
             </div>
 
-            <div className="flex flex-col w-full row-span-2 scroll-smooth overflow-y-auto">
+            <div className="flex flex-col w-full row-span-2 flex-wrap scroll-smooth overflow-y-auto">
                 <ul>
                     {items.map((item) => (
-                        <li key={item.id} className="mb-2 mr-4 w-full bg-yellow-300 rounded-lg p-2 flex justify-between">
-                            {item.todo}
-                            <button onClick={() => deleteItem(item.id)}>D</button>
+                        <li key={item.id} className="mb-2 mr-4 w-full bg-yellow-300 rounded-lg flex justify-between items-center pl-2 ">
+                            <p>{item.todo}</p>
+                            <button className=" bg-red-600 p-4 rounded-r-lg" onClick={() => deleteItem(item.id)}>{<Image alt="delete" src={bin} height={20} width={20}/>}</button>
                         </li>
                     ))}
                 </ul>
