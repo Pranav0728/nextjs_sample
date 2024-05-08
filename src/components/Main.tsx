@@ -48,7 +48,7 @@ export default function Main() {
     };
     
 
-    const deleteItem = async (id) => {
+    const deleteItem = async (id:string) => {
         try {
             const response = await fetch(`http://127.0.0.1:8000/${id}`, {
                 method: "DELETE",
